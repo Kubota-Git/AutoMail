@@ -341,7 +341,7 @@ namespace AutoMail
             // 
             // timerSendTiming
             // 
-            this.timerSendTiming.Interval = 60000;
+            this.timerSendTiming.Interval = 30000;
             this.timerSendTiming.Tick += new System.EventHandler(this.TimerSendTiming_Tick);
             // 
             // FormAutoMail

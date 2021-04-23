@@ -309,7 +309,7 @@ namespace AutoMail
         {
             DateTime now = DateTime.Now;//時刻の取得
 
-            if (timer.Hours < now.Hour && timer.Hours < now.Minute)//現在時刻になったら
+            if (timer.Hours == now.Hour && timer.Hours == now.Minute)//現在時刻になったら
             {
                 timerSendTiming.Stop();
 
