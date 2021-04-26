@@ -1,0 +1,12 @@
+<<環境設定>>
+
+EXEファイルと同一のフォルダ内へ下記TXTファイルを格納してください。
+
+DepartmentList.txt 	//部署データ(1行ずつ記載)
+PlaceList.txt		//施設データ(1行ずつ記載)
+TrainingList.txt	//就業内容データ(1行ずつ記載)
+MyData.txt		//使用者データ(氏名,アドレスの書式にて記載)
+AddressList.txt 	//アドレスデータ(1人1行ずつ氏名,アドレスの書式にて記載)
+
+MessageForm.txt //自動配信メールの定型文
+
