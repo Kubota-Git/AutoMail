@@ -65,7 +65,7 @@ namespace AutoMail
             // 
             // buttonMailCreate
             // 
-            this.buttonMailCreate.Location = new System.Drawing.Point(244, 437);
+            this.buttonMailCreate.Location = new System.Drawing.Point(244, 476);
             this.buttonMailCreate.Name = "buttonMailCreate";
             this.buttonMailCreate.Size = new System.Drawing.Size(233, 23);
             this.buttonMailCreate.TabIndex = 11;
@@ -88,7 +88,7 @@ namespace AutoMail
             this.textBoxMail.Location = new System.Drawing.Point(16, 258);
             this.textBoxMail.Multiline = true;
             this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.Size = new System.Drawing.Size(460, 170);
+            this.textBoxMail.Size = new System.Drawing.Size(460, 210);
             this.textBoxMail.TabIndex = 10;
             this.textBoxMail.TextChanged += new System.EventHandler(this.TextBoxMail_TextChanged);
             // 
@@ -314,7 +314,7 @@ namespace AutoMail
             0});
             this.numericUpDownSendTimerM.Location = new System.Drawing.Point(161, 5);
             this.numericUpDownSendTimerM.Maximum = new decimal(new int[] {
-            60,
+            59,
             0,
             0,
             0});
@@ -334,21 +334,21 @@ namespace AutoMail
             this.panelTimer.Controls.Add(this.numericUpDownSendTimerM);
             this.panelTimer.Controls.Add(this.label6);
             this.panelTimer.Controls.Add(this.numericUpDownSendTimerH);
-            this.panelTimer.Location = new System.Drawing.Point(16, 434);
+            this.panelTimer.Location = new System.Drawing.Point(16, 474);
             this.panelTimer.Name = "panelTimer";
             this.panelTimer.Size = new System.Drawing.Size(222, 27);
             this.panelTimer.TabIndex = 15;
             // 
             // timerSendTiming
             // 
-            this.timerSendTiming.Interval = 30000;
+            this.timerSendTiming.Interval = 10000;
             this.timerSendTiming.Tick += new System.EventHandler(this.TimerSendTiming_Tick);
             // 
             // FormAutoMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 469);
+            this.ClientSize = new System.Drawing.Size(495, 513);
             this.Controls.Add(this.panelTimer);
             this.Controls.Add(this.buttonExcel);
             this.Controls.Add(this.buttonFromUserAdd);
@@ -373,7 +373,7 @@ namespace AutoMail
             this.Controls.Add(this.labelTotay);
             this.Controls.Add(this.buttonMailCreate);
             this.Name = "FormAutoMail";
-            this.Text = "メール自動作成ツール";
+            this.Text = "メール自動配信ツール";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSendTimerH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSendTimerM)).EndInit();

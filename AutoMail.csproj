@@ -82,6 +82,12 @@
     <Compile Include="FormExcel.Designer.cs">
       <DependentUpon>FormExcel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSendTimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSendTimer.Designer.cs">
+      <DependentUpon>FormSendTimer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAutoMail.resx">
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExcel.resx">
       <DependentUpon>FormExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSendTimer.resx">
+      <DependentUpon>FormSendTimer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -32,6 +32,8 @@ namespace AutoMail
         public static string excelFileTitle;//Excelファイル名
         public static string excelOutputFilePath;//Excelファイルのパス
         private TimeSpan timer;//送信タイマー格納変数
+        public static int counterTimerH ;//送信タイマー残り時間H格納変数
+        public static int counterTimerM;//送信タイマー残り時間M格納変数
 
 
         public const string departmentListFile = "DepartmentList.txt";//事業所リストファイル
@@ -42,6 +44,8 @@ namespace AutoMail
 
         public const string placeListFile = "PlaceList.txt";//就業場所リストファイル
         public static List<string> placeList = new List<string>();//就業場所リスト登録用
+
+
 
         public FormAutoMail()
         {
@@ -103,76 +107,109 @@ namespace AutoMail
 
         private void ButtonCreate_Click(object sender, EventArgs e)
         {
-            if (textBoxUserName.Text != "" &&//送信者が空白出ない場合
+            if(MessageBox.Show("この内容で送信しても宜しいでしょうか？","最終確認",
+                MessageBoxButtons.OKCancel,MessageBoxIcon.Information) ==DialogResult.OK)
+            {
+                if (textBoxUserName.Text != "" &&//送信者が空白出ない場合
                 excelFlug != false &&//Excel未操作
                 checkBoxSendTimer.Checked != true)//送信タイマー機能なし
-            {
-                // outlookメールの立ち上げ
-                var application = new Microsoft.Office.Interop.Outlook.Application();
-
-                MailItem mailItem = application.CreateItem(OlItemType.olMailItem);
-                if (mailItem != null)
                 {
-                    // To
-                    Recipient to = mailItem.Recipients.Add(AddressList[comboBoxSendTo.Text]);
-                    to.Type = (int)Outlook.OlMailRecipientType.olTo;
+                    //送信ボタン操作OFF
+                    buttonMailCreate.Enabled = false;
 
-                    // Cc
-                    if(comboBoxSendCC1.Text != "")
+                    //フォームの最小化
+                    this.WindowState = FormWindowState.Minimized;
+
+                    // outlookメールの立ち上げ
+                    var application = new Microsoft.Office.Interop.Outlook.Application();
+
+                    MailItem mailItem = application.CreateItem(OlItemType.olMailItem);
+                    if (mailItem != null)
                     {
-                        Recipient cc = mailItem.Recipients.Add(AddressList[comboBoxSendCC1.Text]);
-                        cc.Type = (int)Outlook.OlMailRecipientType.olCC;
+                        // To
+                        Recipient to = mailItem.Recipients.Add(AddressList[comboBoxSendTo.Text]);
+                        to.Type = (int)Outlook.OlMailRecipientType.olTo;
+
+                        // Cc
+                        if (comboBoxSendCC1.Text != "")
+                        {
+                            Recipient cc = mailItem.Recipients.Add(AddressList[comboBoxSendCC1.Text]);
+                            cc.Type = (int)Outlook.OlMailRecipientType.olCC;
+                        }
+                        if (comboBoxSendCC2.Text != "")
+                        {
+                            Recipient cc2 = mailItem.Recipients.Add(AddressList[comboBoxSendCC2.Text]);
+                            cc2.Type = (int)Outlook.OlMailRecipientType.olCC;
+                        }
+
+                        // アドレス帳の表示名で表示できる
+                        mailItem.Recipients.ResolveAll();
+
+                        // 件名
+                        mailItem.Subject = $"日報{day.Year}年{day.Month}月{day.Day}日分(久保田將広) ";
+
+                        // 本文
+                        mailItem.Body = messageBody;
+
+                        // 表示(Displayメソッド引数のtrue/falseでモーダル/モードレスウィンドウを指定して表示できる)
+                        mailItem.Display(false);
+
+                        //ファイルを添付        
+                        excelOutputFilePath = Path.GetFullPath(excelFileTitle);//ファイルパスの取得
+                        mailItem.Attachments.Add(excelOutputFilePath);//ファイルを添付
+
+                        //メールを下書き保存
+                        mailItem.Save();
+
+                        //メールを送信
+                        mailItem.Send();
+
+
+                        //フォームを閉じる
+                        this.Close();
+
                     }
-                    if (comboBoxSendCC2.Text != "")
-                    {
-                        Recipient cc2 = mailItem.Recipients.Add(AddressList[comboBoxSendCC2.Text]);
-                    cc2.Type = (int)Outlook.OlMailRecipientType.olCC;
-                    }
-
-                    // アドレス帳の表示名で表示できる
-                    mailItem.Recipients.ResolveAll();
-
-                    // 件名
-                    mailItem.Subject = $"日報{day.Year}年{day.Month}月{day.Day}日分(久保田將広) ";
-
-                    // 本文
-                    mailItem.Body = messageBody;
-
-                    // 表示(Displayメソッド引数のtrue/falseでモーダル/モードレスウィンドウを指定して表示できる)
-                    mailItem.Display(true);
-
-                    //ファイルを添付        
-                    excelOutputFilePath = Path.GetFullPath(excelFileTitle);//ファイルパスの取得
-                    mailItem.Attachments.Add(excelOutputFilePath);//ファイルを添付
-
-                    
-                    //メールを送信
-                    mailItem.Send();
-
-                    //フォームを閉じる
-                    this.Close();
-                    
                 }
-            }
-            //未編集部分を警告
-            else　if(textBoxUserName.Text == "")//送信者が空白の場合
-            { 
-                MessageBox.Show("送信者氏名が空白です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(excelFlug == false)
-            {
-                MessageBox.Show("日報が編集されておりません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if(checkBoxSendTimer.Checked == true)
-            {
-                timerSendTiming.Start();
+                //未編集部分を警告
+                else if(textBoxUserName.Text == "")//送信者が空白の場合
+                {
+                    MessageBox.Show("送信者氏名が空白です。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (excelFlug == false)
+                {
+                    MessageBox.Show("日報が編集されておりません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (checkBoxSendTimer.Checked == true)//送信タイマーがONの時
+                {
+                    timerSendTiming.Start();
 
-                //送信タイマーメッセージ
-                MessageBox.Show(buttonMailCreate.Text, "送信タイマー", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //送信ボタン操作OFF
+                    buttonMailCreate.Enabled = false;
+
+                    //フォームの最小化
+                    this.WindowState = FormWindowState.Minimized;
+
+                    //送信タイマーフォーム            
+                    FormSendTimer formSendTimer = new FormSendTimer();//フォームの立ち上げ
+                    if (formSendTimer.ShowDialog() == DialogResult.Cancel)//モーダルダイアログで開く
+                    {
+                        timerSendTiming.Stop();//キャンセルされた場合はタイマーをOFF
+                                               
+                        buttonMailCreate.Enabled = true;//送信ボタン操作ONに戻す
+
+                        //フォームの最小化
+                        this.WindowState = FormWindowState.Normal;//表示
+
+                    }
+                    formSendTimer.Dispose();//フォームを閉じる
+
+                }
+
+
             }
 
 
-           
+
 
         }
 
@@ -279,7 +316,6 @@ namespace AutoMail
             if (formExcel.ShowDialog() == DialogResult.OK)//モーダルダイアログで開く
             {
 
-
             }
             excelFlug = true;//エクセル操作完了
             formExcel.Dispose();//フォームを閉じる
@@ -288,8 +324,16 @@ namespace AutoMail
 
 
         private void CheckBoxSendTimer_CheckedChanged_1(object sender, EventArgs e)
-        {
-            TimerMethod();
+        {           
+
+            if(checkBoxSendTimer.Checked != false)//チェックボックスが//ONの場合
+            {
+                TimerMethod();
+            }          
+            else//OFFの場合
+            {               
+                buttonMailCreate.Text = "メール配信";
+            }
         }
 
         private void NumericUpDownSendTimerH_ValueChanged(object sender, EventArgs e)
@@ -302,6 +346,8 @@ namespace AutoMail
         {
             checkBoxSendTimer.Checked = true;//チェックボックスをON
             TimerMethod();
+
+
         }
 
         //送信タイマーの設定
@@ -309,7 +355,10 @@ namespace AutoMail
         {
             DateTime now = DateTime.Now;//時刻の取得
 
-            if (timer.Hours == now.Hour && timer.Hours == now.Minute)//現在時刻になったら
+            counterTimerH = (int)(timer.Hours - now.Hour);
+            counterTimerM = (int)(timer.Minutes - now.Minute);            
+
+            if (counterTimerH == 0 && counterTimerM == 0)//現在時刻になったら
             {
                 timerSendTiming.Stop();
 
@@ -344,13 +393,17 @@ namespace AutoMail
                     // 本文
                     mailItem.Body = messageBody;
 
+                    //
+
                     // 表示(Displayメソッド引数のtrue/falseでモーダル/モードレスウィンドウを指定して表示できる)
-                    mailItem.Display(true);
+                    mailItem.Display(false);
 
                     //ファイルを添付        
                     excelOutputFilePath = Path.GetFullPath(excelFileTitle);//ファイルパスの取得
                     mailItem.Attachments.Add(excelOutputFilePath);//ファイルを添付
 
+                    //メールを下書き保存
+                    mailItem.Save();
 
                     //メールを送信
                     mailItem.Send();
@@ -518,10 +571,15 @@ namespace AutoMail
                                         +(int)numericUpDownSendTimerM.Value,//分
                                         0);//秒
 
+            if(checkBoxSendTimer.Checked == true)
+            {
             //ボタン表示の変更
             buttonMailCreate.Text = timer.Hours + ":" +
                                     timer.Minutes +
                                     "にメールを配信";
+            }
+
+
         }
     }
 }
