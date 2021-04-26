@@ -26,9 +26,8 @@ namespace AutoMail
 
         private void FormSendTimer_Load(object sender, EventArgs e)
         {
-            labelTimeLimits.Text = "計算中";
-
-                timerSendTimer.Start();//表示用タイマー開始
+            labelTimeLimits.Text = "待機中";
+            timerSendTimer.Start();//表示用タイマー開始
         }
 
         private void TimerSendTimer_Tick(object sender, EventArgs e)
@@ -39,6 +38,7 @@ namespace AutoMail
 
             if (FormAutoMail.counterTimerH == 0 && FormAutoMail.counterTimerM ==0)
             {
+                //カウンターが0になったらフォームを閉じる
                 timerSendTimer.Stop();
                 this.Close();
             }
