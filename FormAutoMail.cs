@@ -31,7 +31,6 @@ namespace AutoMail
         private int counter = 0;//カウンター用変数
         public static string excelFileTitle;//Excelファイル名
         public static string excelOutputFilePath;//Excelファイルのパス
-
         
         public static int counterTimerH ;//送信タイマー残り時間H格納変数
         public static int counterTimerM;//送信タイマー残り時間M格納変数
