@@ -29,7 +29,6 @@ namespace AutoMail
         /// </summary>
         public void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonMailCreate = new System.Windows.Forms.Button();
             this.labelTotay = new System.Windows.Forms.Label();
             this.textBoxMail = new System.Windows.Forms.TextBox();
@@ -57,7 +56,6 @@ namespace AutoMail
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDownSendTimerM = new System.Windows.Forms.NumericUpDown();
             this.panelTimer = new System.Windows.Forms.Panel();
-            this.timerSendTiming = new System.Windows.Forms.Timer(this.components);
             this.buttonAttachFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSendTimerH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSendTimerM)).BeginInit();
@@ -341,11 +339,6 @@ namespace AutoMail
             this.panelTimer.Size = new System.Drawing.Size(222, 27);
             this.panelTimer.TabIndex = 15;
             // 
-            // timerSendTiming
-            // 
-            this.timerSendTiming.Interval = 10000;
-            this.timerSendTiming.Tick += new System.EventHandler(this.TimerSendTiming_Tick);
-            // 
             // buttonAttachFile
             // 
             this.buttonAttachFile.Location = new System.Drawing.Point(257, 238);
@@ -426,7 +419,6 @@ namespace AutoMail
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDownSendTimerM;
         private System.Windows.Forms.Panel panelTimer;
-        private System.Windows.Forms.Timer timerSendTiming;
         private System.Windows.Forms.Button buttonAttachFile;
     }
 }
