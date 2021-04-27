@@ -431,6 +431,7 @@ namespace AutoMail
                     //フォームを閉じる
                     this.Close();
 
+
                 }
             }
         }
