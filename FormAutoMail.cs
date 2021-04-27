@@ -172,8 +172,7 @@ namespace AutoMail
                         if (checkBoxSendTimer.Checked == true)//送信時間が設定されている場合
                         {
                             //送信時間を設定し、待機トレイに格納
-                            mailItem.DeferredDeliveryTime = lateSendTime;                            
-
+                            mailItem.DeferredDeliveryTime = lateSendTime;
                         }
 
                         //メールを下書き保存
