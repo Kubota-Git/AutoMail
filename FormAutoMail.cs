@@ -307,11 +307,12 @@ namespace AutoMail
             FormExcel formExcel = new FormExcel();//フォームの立ち上げ
             if (formExcel.ShowDialog() == DialogResult.OK)//モーダルダイアログで開く
             {
-                if (excelFileTitle != "")//日報を添付
-                {
-                    AttachFilePath.Add(Path.GetFullPath(excelFileTitle));//ファイルパスをリストへ格納
 
-                }
+            }
+            if (excelFileTitle != "")//日報を添付
+            {
+                AttachFilePath.Add(Path.GetFullPath(excelFileTitle));//ファイルパスをリストへ格納
+
             }
             excelFlug = true;//エクセル操作完了
             formExcel.Dispose();//フォームを閉じる
