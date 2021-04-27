@@ -35,6 +35,8 @@ namespace AutoMail
         public static int counterTimerH ;//送信タイマー残り時間H格納変数
         public static int counterTimerM;//送信タイマー残り時間M格納変数
 
+        public List<string> AttachFilePath = new List<string>(); //添付ファイルのパス
+
 
         public const string departmentListFile = "DepartmentList.txt";//事業所リストファイル
         public static List<string> departmentList = new List<string>();//事業所リスト登録用
@@ -154,9 +156,14 @@ namespace AutoMail
                         // 表示(Displayメソッド引数のtrue/falseでモーダル/モードレスウィンドウを指定して表示できる)
                         mailItem.Display(false);
 
-                        //ファイルを添付        
-                        excelOutputFilePath = Path.GetFullPath(excelFileTitle);//ファイルパスの取得
-                        mailItem.Attachments.Add(excelOutputFilePath);//ファイルを添付
+                        //ファイルを添付                        
+                        foreach (string path in AttachFilePath)
+                        {
+                            if (path != "")//空白で無ければ
+                            {
+                                mailItem.Attachments.Add(path);//ファイルを添付
+                            }
+                        }
 
                         //メールを下書き保存
                         mailItem.Save();
@@ -177,7 +184,14 @@ namespace AutoMail
                 }
                 else if (excelFlug == false)
                 {
-                    MessageBox.Show("日報が編集されておりません。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(MessageBox.Show("日報が編集されておりません。\n宜しいですか？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Information)==DialogResult.Yes)
+                    {
+                        //Yesならそのまま送信へ進む
+                        excelFlug = true;
+
+                        ButtonCreate_Click(sender,e);//再度実行
+                    }                    
+                        
                 }
                 else if (checkBoxSendTimer.Checked == true)//送信タイマーがONの時
                 {
@@ -202,15 +216,8 @@ namespace AutoMail
 
                     }
                     formSendTimer.Dispose();//フォームを閉じる
-
                 }
-
-
             }
-
-
-
-
         }
 
         private void RadioButtonToday_CheckedChanged(object sender, EventArgs e)
@@ -315,7 +322,11 @@ namespace AutoMail
             FormExcel formExcel = new FormExcel();//フォームの立ち上げ
             if (formExcel.ShowDialog() == DialogResult.OK)//モーダルダイアログで開く
             {
+                if (excelFileTitle != "")//日報を添付
+                {
+                    AttachFilePath.Add(Path.GetFullPath(excelFileTitle));//ファイルパスをリストへ格納
 
+                }
             }
             excelFlug = true;//エクセル操作完了
             formExcel.Dispose();//フォームを閉じる
@@ -398,9 +409,15 @@ namespace AutoMail
                     // 表示(Displayメソッド引数のtrue/falseでモーダル/モードレスウィンドウを指定して表示できる)
                     mailItem.Display(false);
 
-                    //ファイルを添付        
-                    excelOutputFilePath = Path.GetFullPath(excelFileTitle);//ファイルパスの取得
-                    mailItem.Attachments.Add(excelOutputFilePath);//ファイルを添付
+                    //ファイルを添付                    
+                    foreach(string path in AttachFilePath)
+                    {
+                        if(path != "")//空白で無ければ
+                        {
+                            mailItem.Attachments.Add(path);//ファイルを添付
+                        }
+                    }
+                    
 
                     //メールを下書き保存
                     mailItem.Save();
@@ -580,6 +597,45 @@ namespace AutoMail
             }
 
 
+        }
+
+        private void ButtonAttachFile_Click(object sender, EventArgs e)
+        {
+            //OpenFileDialogクラスのインスタンスを作成
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            //はじめに「ファイル名」で表示される文字列
+            ofd.FileName = "default.xls";
+
+            //指定しない（空の文字列）の時は、現在のディレクトリが表示される
+            ofd.InitialDirectory = @"";
+
+            //ファイル形式の指定(未指定時はすべてのファイルが表示)EXCELファイル(*.xls;*.xlsx)|すべてのファイル(*.*)|*.*
+            ofd.Filter = "";
+
+            //タイトルを設定する
+            ofd.Title = "開くファイルを選択してください";
+
+            //ダイアログボックスを閉じる前に現在のディレクトリを復元するようにする
+            ofd.RestoreDirectory = true;
+
+            //存在しないファイルの名前が指定されたとき警告を表示する
+            //デフォルトでTrueなので指定する必要はない
+            ofd.CheckFileExists = true;
+
+            //存在しないパスが指定されたとき警告を表示する
+            //デフォルトでTrueなので指定する必要はない
+            ofd.CheckPathExists = true;
+
+            //ダイアログを表示する
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                //OKボタンがクリックされたとき、選択されたファイル名を表示する
+
+                AttachFilePath.Add(Path.GetFullPath(ofd.FileName));//ファイルパスのをリストへ格納
+                
+
+            }
         }
     }
 }

@@ -58,6 +58,7 @@ namespace AutoMail
             this.numericUpDownSendTimerM = new System.Windows.Forms.NumericUpDown();
             this.panelTimer = new System.Windows.Forms.Panel();
             this.timerSendTiming = new System.Windows.Forms.Timer(this.components);
+            this.buttonAttachFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSendTimerH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSendTimerM)).BeginInit();
             this.panelTimer.SuspendLayout();
@@ -85,17 +86,18 @@ namespace AutoMail
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(16, 258);
+            this.textBoxMail.Location = new System.Drawing.Point(16, 270);
             this.textBoxMail.Multiline = true;
             this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.Size = new System.Drawing.Size(460, 210);
+            this.textBoxMail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxMail.Size = new System.Drawing.Size(460, 198);
             this.textBoxMail.TabIndex = 10;
             this.textBoxMail.TextChanged += new System.EventHandler(this.TextBoxMail_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 243);
+            this.label1.Location = new System.Drawing.Point(14, 249);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 3;
@@ -344,11 +346,22 @@ namespace AutoMail
             this.timerSendTiming.Interval = 10000;
             this.timerSendTiming.Tick += new System.EventHandler(this.TimerSendTiming_Tick);
             // 
+            // buttonAttachFile
+            // 
+            this.buttonAttachFile.Location = new System.Drawing.Point(257, 238);
+            this.buttonAttachFile.Name = "buttonAttachFile";
+            this.buttonAttachFile.Size = new System.Drawing.Size(219, 23);
+            this.buttonAttachFile.TabIndex = 16;
+            this.buttonAttachFile.Text = "日報以外を添付";
+            this.buttonAttachFile.UseVisualStyleBackColor = true;
+            this.buttonAttachFile.Click += new System.EventHandler(this.ButtonAttachFile_Click);
+            // 
             // FormAutoMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 513);
+            this.Controls.Add(this.buttonAttachFile);
             this.Controls.Add(this.panelTimer);
             this.Controls.Add(this.buttonExcel);
             this.Controls.Add(this.buttonFromUserAdd);
@@ -414,6 +427,7 @@ namespace AutoMail
         private System.Windows.Forms.NumericUpDown numericUpDownSendTimerM;
         private System.Windows.Forms.Panel panelTimer;
         private System.Windows.Forms.Timer timerSendTiming;
+        private System.Windows.Forms.Button buttonAttachFile;
     }
 }
 
