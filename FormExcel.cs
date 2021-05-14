@@ -13,6 +13,7 @@ using System.IO;
 
 
 
+
 namespace AutoMail
 {
     public partial class FormExcel : Form
@@ -79,7 +80,7 @@ namespace AutoMail
         private void Button1_Click(object sender, EventArgs e)
         {
             //値の格納
-            for (int i = 1; i <= 5; i++) 
+            for (int i = 1; i <= 11; i++) 
             {               
                 //コントロールを変数にて扱う
                 contents.Add(this.Controls["comboBoxContent" + i].Text + this.Controls["textBoxContent" + i].Text);
@@ -213,7 +214,30 @@ namespace AutoMail
         {
             checkBoxContent5.Checked = true;
         }
-
+        private void TextBoxContent6_TextChanged(object sender, EventArgs e)
+        {
+            checkBoxContent6.Checked = true;
+        }
+        private void TextBoxContent7_TextChanged(object sender, EventArgs e)
+        {
+            checkBoxContent7.Checked = true;
+        }
+        private void TextBoxContent8_TextChanged(object sender, EventArgs e)
+        {
+            checkBoxContent8.Checked = true;
+        }
+        private void TextBoxContent9_TextChanged(object sender, EventArgs e)
+        {
+            checkBoxContent9.Checked = true;
+        }
+        private void TextBoxContent10_TextChanged(object sender, EventArgs e)
+        {
+            checkBoxContent10.Checked = true;
+        }
+        private void TextBoxContent11_TextChanged(object sender, EventArgs e)
+        {
+            checkBoxContent11.Checked = true;
+        }
         private void NumericUpDownStartTimeH_ValueChanged(object sender, EventArgs e)
         {
             //就業時間の計算
@@ -275,6 +299,43 @@ namespace AutoMail
             labelTotalTime.Text = totalTime.ToString("F2");//小数桁数2桁まで
         }
 
+        private void textBoxComment_TextChanged(object sender, EventArgs e)
+        {
+            /*
+            string s = textBoxComment.Text;
+            List<string> sLine = new List<string>();
+            
+            for(int i = s.Length; i > 0;i++)
+            {
+                for(int j = 0; j < s.Length;)
+                { 
+                   sLine.Add(s.Substring(j,52));
+                    j += 52;
+                }
+            }
+
+            int count = 0;
+            foreach(string obj in sLine)
+            {
+                 if(obj.IndexOf("\n") != -1)
+                { 
+               
+                    count++;
+                }
+            }
+
+            */
+
+            int num = textBoxComment.TextLength;
+  
+            labelStringNum.Text = "(" + num + "/ 450文字)";
+
+            if(num > 450)
+            {
+                MessageBox.Show("入力文字数がExcel枠を超える可能性があります。\nご確認願います。", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
 
     }
 }
