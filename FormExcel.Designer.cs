@@ -172,6 +172,7 @@ namespace AutoMail
             this.comboBoxContent1.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent1.TabIndex = 10;
             this.comboBoxContent1.Text = "●";
+            this.comboBoxContent1.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent1_SelectedIndexChanged);
             // 
             // checkBoxContent1
             // 
@@ -181,6 +182,7 @@ namespace AutoMail
             this.checkBoxContent1.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent1.TabIndex = 9;
             this.checkBoxContent1.UseVisualStyleBackColor = true;
+            this.checkBoxContent1.CheckedChanged += new System.EventHandler(this.checkBoxContent1_CheckedChanged);
             // 
             // textBoxContent1
             // 
@@ -202,6 +204,7 @@ namespace AutoMail
             this.comboBoxContent2.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent2.TabIndex = 13;
             this.comboBoxContent2.Text = "●";
+            this.comboBoxContent2.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent2_SelectedIndexChanged);
             // 
             // checkBoxContent2
             // 
@@ -211,6 +214,7 @@ namespace AutoMail
             this.checkBoxContent2.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent2.TabIndex = 12;
             this.checkBoxContent2.UseVisualStyleBackColor = true;
+            this.checkBoxContent2.CheckedChanged += new System.EventHandler(this.checkBoxContent2_CheckedChanged);
             // 
             // textBoxContent2
             // 
@@ -232,6 +236,7 @@ namespace AutoMail
             this.comboBoxContent3.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent3.TabIndex = 16;
             this.comboBoxContent3.Text = "●";
+            this.comboBoxContent3.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent3_SelectedIndexChanged);
             // 
             // checkBoxContent3
             // 
@@ -241,6 +246,7 @@ namespace AutoMail
             this.checkBoxContent3.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent3.TabIndex = 15;
             this.checkBoxContent3.UseVisualStyleBackColor = true;
+            this.checkBoxContent3.CheckedChanged += new System.EventHandler(this.checkBoxContent3_CheckedChanged);
             // 
             // textBoxContent3
             // 
@@ -262,6 +268,7 @@ namespace AutoMail
             this.comboBoxContent4.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent4.TabIndex = 19;
             this.comboBoxContent4.Text = "●";
+            this.comboBoxContent4.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent4_SelectedIndexChanged);
             // 
             // checkBoxContent4
             // 
@@ -271,6 +278,7 @@ namespace AutoMail
             this.checkBoxContent4.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent4.TabIndex = 18;
             this.checkBoxContent4.UseVisualStyleBackColor = true;
+            this.checkBoxContent4.CheckedChanged += new System.EventHandler(this.checkBoxContent4_CheckedChanged);
             // 
             // textBoxContent4
             // 
@@ -292,6 +300,7 @@ namespace AutoMail
             this.comboBoxContent5.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent5.TabIndex = 22;
             this.comboBoxContent5.Text = "●";
+            this.comboBoxContent5.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent5_SelectedIndexChanged);
             // 
             // checkBoxContent5
             // 
@@ -301,6 +310,7 @@ namespace AutoMail
             this.checkBoxContent5.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent5.TabIndex = 21;
             this.checkBoxContent5.UseVisualStyleBackColor = true;
+            this.checkBoxContent5.CheckedChanged += new System.EventHandler(this.checkBoxContent5_CheckedChanged);
             // 
             // textBoxContent5
             // 
@@ -654,6 +664,7 @@ namespace AutoMail
             this.comboBoxContent6.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent6.TabIndex = 22;
             this.comboBoxContent6.Text = "●";
+            this.comboBoxContent6.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent6_SelectedIndexChanged);
             // 
             // checkBoxContent6
             // 
@@ -663,6 +674,7 @@ namespace AutoMail
             this.checkBoxContent6.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent6.TabIndex = 21;
             this.checkBoxContent6.UseVisualStyleBackColor = true;
+            this.checkBoxContent6.CheckedChanged += new System.EventHandler(this.checkBoxContent6_CheckedChanged);
             // 
             // textBoxContent6
             // 
@@ -684,6 +696,7 @@ namespace AutoMail
             this.comboBoxContent7.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent7.TabIndex = 22;
             this.comboBoxContent7.Text = "●";
+            this.comboBoxContent7.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent7_SelectedIndexChanged);
             // 
             // checkBoxContent7
             // 
@@ -693,6 +706,7 @@ namespace AutoMail
             this.checkBoxContent7.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent7.TabIndex = 21;
             this.checkBoxContent7.UseVisualStyleBackColor = true;
+            this.checkBoxContent7.CheckedChanged += new System.EventHandler(this.checkBoxContent7_CheckedChanged);
             // 
             // textBoxContent7
             // 
@@ -714,6 +728,7 @@ namespace AutoMail
             this.comboBoxContent8.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent8.TabIndex = 22;
             this.comboBoxContent8.Text = "●";
+            this.comboBoxContent8.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent8_SelectedIndexChanged);
             // 
             // checkBoxContent8
             // 
@@ -723,6 +738,7 @@ namespace AutoMail
             this.checkBoxContent8.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent8.TabIndex = 21;
             this.checkBoxContent8.UseVisualStyleBackColor = true;
+            this.checkBoxContent8.CheckedChanged += new System.EventHandler(this.checkBoxContent8_CheckedChanged);
             // 
             // textBoxContent8
             // 
@@ -744,6 +760,7 @@ namespace AutoMail
             this.comboBoxContent9.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent9.TabIndex = 22;
             this.comboBoxContent9.Text = "●";
+            this.comboBoxContent9.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent9_SelectedIndexChanged);
             // 
             // checkBoxContent9
             // 
@@ -753,6 +770,7 @@ namespace AutoMail
             this.checkBoxContent9.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent9.TabIndex = 21;
             this.checkBoxContent9.UseVisualStyleBackColor = true;
+            this.checkBoxContent9.CheckedChanged += new System.EventHandler(this.checkBoxContent9_CheckedChanged);
             // 
             // textBoxContent9
             // 
@@ -774,6 +792,7 @@ namespace AutoMail
             this.comboBoxContent10.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent10.TabIndex = 22;
             this.comboBoxContent10.Text = "●";
+            this.comboBoxContent10.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent10_SelectedIndexChanged);
             // 
             // checkBoxContent10
             // 
@@ -783,6 +802,7 @@ namespace AutoMail
             this.checkBoxContent10.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent10.TabIndex = 21;
             this.checkBoxContent10.UseVisualStyleBackColor = true;
+            this.checkBoxContent10.CheckedChanged += new System.EventHandler(this.checkBoxContent10_CheckedChanged);
             // 
             // textBoxContent10
             // 
@@ -804,6 +824,7 @@ namespace AutoMail
             this.comboBoxContent11.Size = new System.Drawing.Size(79, 20);
             this.comboBoxContent11.TabIndex = 22;
             this.comboBoxContent11.Text = "●";
+            this.comboBoxContent11.SelectedIndexChanged += new System.EventHandler(this.comboBoxContent11_SelectedIndexChanged);
             // 
             // checkBoxContent11
             // 
@@ -813,6 +834,7 @@ namespace AutoMail
             this.checkBoxContent11.Size = new System.Drawing.Size(15, 14);
             this.checkBoxContent11.TabIndex = 21;
             this.checkBoxContent11.UseVisualStyleBackColor = true;
+            this.checkBoxContent11.CheckedChanged += new System.EventHandler(this.checkBoxContent11_CheckedChanged);
             // 
             // textBoxContent11
             // 

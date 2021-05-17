@@ -88,7 +88,8 @@ namespace AutoMail
             {
                 if (checkBoxContent[i] == true)//チェックボックスがONのみ有効
                 {
-                    //if(this.Controls["checkBoxContent" + i].)
+                    //if(this.Controls["checkBoxContent" + i+1].)
+                    //(空白は飛ばされる)
                     //コントロールを変数にて扱う
                     contents.Add(this.Controls["comboBoxContent" + (i + 1)].Text 
                         + this.Controls["textBoxContent" + (i + 1)].Text);
@@ -202,128 +203,51 @@ namespace AutoMail
 
         private void TextBoxContent1_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent1.Checked == true)
-            {
-                checkBoxContent[0] = true;
-            }
-            else
-            {
-                checkBoxContent[0] = false;
-            }
+            checkBoxContent1.Checked = true;
         }
 
         private void TextBoxContent2_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent2.Checked == true)
-            {
-                checkBoxContent[1] = true;
-            }
-            else
-            {
-                checkBoxContent[1] = false;
-            }
+            checkBoxContent2.Checked = true;
         }
 
         private void TextBoxContent3_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent3.Checked == true)
-            {
-                checkBoxContent[2] = true;
-            }
-            else
-            {
-                checkBoxContent[2] = false;
-            }
+            checkBoxContent3.Checked = true;
         }
 
         private void TextBoxContent4_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent4.Checked == true)
-            {
-                checkBoxContent[3] = true;
-            }
-            else
-            {
-                checkBoxContent[3] = false;
-            }
+            checkBoxContent4.Checked = true;
         }
 
         private void TextBoxContent5_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent5.Checked == true)
-            {
-                checkBoxContent[4] = true;
-            }
-            else
-            {
-                checkBoxContent[4] = false;
-            }
+            checkBoxContent5.Checked = true;
         }
         private void TextBoxContent6_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent6.Checked == true)
-            {
-                checkBoxContent[5] = true;
-            }
-            else
-            {
-                checkBoxContent[5] = false;
-            }
+            checkBoxContent6.Checked = true;
         }
         private void TextBoxContent7_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent7.Checked == true)
-            {
-                checkBoxContent[6] = true;
-            }
-            else
-            {
-                checkBoxContent[6] = false;
-            }
+            checkBoxContent7.Checked = true;
         }
         private void TextBoxContent8_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent8.Checked == true)
-            {
-                checkBoxContent[7] = true;
-            }
-            else
-            {
-                checkBoxContent[7] = false;
-            }
+            checkBoxContent8.Checked = true;
         }
         private void TextBoxContent9_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent9.Checked == true)
-            {
-                checkBoxContent[8] = true;
-            }
-            else
-            {
-                checkBoxContent[8] = false;
-            }
+            checkBoxContent9.Checked = true;
         }
         private void TextBoxContent10_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent10.Checked == true)
-            {
-                checkBoxContent[9] = true;
-            }
-            else
-            {
-                checkBoxContent[9] = false;
-            }
+            checkBoxContent10.Checked = true;
         }
         private void TextBoxContent11_TextChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent11.Checked == true)
-            {
-                checkBoxContent[10] = true;
-            }
-            else
-            {
-                checkBoxContent[10] = false;
-            }
+            checkBoxContent11.Checked = true;
         }
         private void NumericUpDownStartTimeH_ValueChanged(object sender, EventArgs e)
         {
@@ -400,5 +324,192 @@ namespace AutoMail
             
         }
 
+        private void checkBoxContent1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent1.Checked == true)
+            {
+                checkBoxContent[0] = true;
+            }
+            else
+            {
+                checkBoxContent[0] = false;
+            }
+
+        }
+
+        private void checkBoxContent2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent2.Checked == true)
+            {
+                checkBoxContent[1] = true;
+            }
+            else
+            {
+                checkBoxContent[1] = false;
+            }
+        }
+
+        private void checkBoxContent3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent3.Checked == true)
+            {
+                checkBoxContent[2] = true;
+            }
+            else
+            {
+                checkBoxContent[2] = false;
+            }
+        }
+
+        private void checkBoxContent4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent4.Checked == true)
+            {
+                checkBoxContent[3] = true;
+            }
+            else
+            {
+                checkBoxContent[3] = false;
+            }
+        }
+
+        private void checkBoxContent5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent5.Checked == true)
+            {
+                checkBoxContent[4] = true;
+            }
+            else
+            {
+                checkBoxContent[4] = false;
+            }
+        }
+
+        private void checkBoxContent6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent6.Checked == true)
+            {
+                checkBoxContent[5] = true;
+            }
+            else
+            {
+                checkBoxContent[5] = false;
+            }
+        }
+
+        private void checkBoxContent7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent6.Checked == true)
+            {
+                checkBoxContent[5] = true;
+            }
+            else
+            {
+                checkBoxContent[5] = false;
+            }
+        }
+
+        private void checkBoxContent8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent8.Checked == true)
+            {
+                checkBoxContent[7] = true;
+            }
+            else
+            {
+                checkBoxContent[7] = false;
+            }
+        }
+
+        private void checkBoxContent9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent9.Checked == true)
+            {
+                checkBoxContent[8] = true;
+            }
+            else
+            {
+                checkBoxContent[8] = false;
+            }
+        }
+
+        private void checkBoxContent10_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent10.Checked == true)
+            {
+                checkBoxContent[9] = true;
+            }
+            else
+            {
+                checkBoxContent[9] = false;
+            }
+        }
+
+        private void checkBoxContent11_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContent11.Checked == true)
+            {
+                checkBoxContent[10] = true;
+            }
+            else
+            {
+                checkBoxContent[10] = false;
+            }
+        }
+
+        private void comboBoxContent1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent1.Checked = true;
+        }
+
+        private void comboBoxContent2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent2.Checked = true;
+        }
+
+        private void comboBoxContent3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent3.Checked = true;
+        }
+
+        private void comboBoxContent4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent4.Checked = true;
+        }
+
+        private void comboBoxContent5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent5.Checked = true;
+        }
+
+        private void comboBoxContent6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent6.Checked = true;
+        }
+
+        private void comboBoxContent7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent7.Checked = true;
+        }
+
+        private void comboBoxContent8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent8.Checked = true;
+        }
+
+        private void comboBoxContent9_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent9.Checked = true;
+        }
+
+        private void comboBoxContent10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent10.Checked = true;
+        }
+
+        private void comboBoxContent11_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            checkBoxContent11.Checked = true;
+        }
     }
 }
