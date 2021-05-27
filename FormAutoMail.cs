@@ -21,17 +21,17 @@ namespace AutoMail
         private string messageBody;//日報内容
         public static Dictionary<string, string> AddressList = new Dictionary<string, string>();//アドレス格納
         public static Dictionary<string, string> MyDataList = new Dictionary<string, string>();//使用者情報格納
-        public string addressFile = "AddressList.txt";//アドレスデータ名
-        public string MessageFormFile = "MessageForm.txt";//定型文ファイル名
-        public string myDataFile = "MyData.txt";//使用者名
-        public string reportFile = "ReportForm.xls";//日報フォーム
+        public static string addressFile = "AddressList.txt";//アドレスデータ名
+        public static string MessageFormFile = "MessageForm.txt";//定型文ファイル名
+        public static string myDataFile = "MyData.txt";//使用者名
+        public static string reportFile = "ReportForm.xls";//日報フォーム
         public static List<string> UserNameList = new List<string>();//送信者名登録用
         public static List<string> SendNameList = new List<string>();//送信先名登録用
         public bool excelFlug;//エクセル操作フラッグ
         private int counter = 0;//カウンター用変数
         public static string excelFileTitle;//Excelファイル名
         public static string excelOutputFilePath;//Excelファイルのパス
-        private string mailTitle = $"日報{day.Year}年{day.Month}月{day.Day}日分(久保田將広) "
+        private string mailTitle = $"日報{day.Year}年{day.Month}月{day.Day}日分(久保田將広) ";
 
         public static int counterTimerH ;//送信タイマー残り時間H格納変数
         public static int counterTimerM;//送信タイマー残り時間M格納変数
@@ -111,12 +111,6 @@ namespace AutoMail
             DataToListMethod(trainingListFile, out trainingList);
             //就業場所情報の読み込み(Dataファイル、Listファイル)            
             DataToListMethod(placeListFile, out placeList);
-
-            //設定データの表示
-            materialTextBoxAddressData.Text = addressFile;
-            materialTextBoxUserData.text = myDataFile;
-            materialTextBoxMailData.text = MessageFormFile;
-            materialTextBoxExcelData.text = reportFile;
 
 
         }
