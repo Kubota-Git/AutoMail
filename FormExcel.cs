@@ -399,13 +399,13 @@ namespace AutoMail
 
         private void checkBoxContent7_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxContent6.Checked == true)
+            if (checkBoxContent7.Checked == true)
             {
-                checkBoxContent[5] = true;
+                checkBoxContent[6] = true;
             }
             else
             {
-                checkBoxContent[5] = false;
+                checkBoxContent[6] = false;
             }
         }
 
