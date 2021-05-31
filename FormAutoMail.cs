@@ -31,7 +31,7 @@ namespace AutoMail
         private int counter = 0;//カウンター用変数
         public static string excelFileTitle;//Excelファイル名
         public static string excelOutputFilePath;//Excelファイルのパス
-        private string mailTitle = $"日報{day.Year}年{day.Month}月{day.Day}日分(久保田將広) ";
+        private string mailTitle;//選択日日付用変数
 
         public static int counterTimerH ;//送信タイマー残り時間H格納変数
         public static int counterTimerM;//送信タイマー残り時間M格納変数
@@ -156,6 +156,7 @@ namespace AutoMail
                         mailItem.Recipients.ResolveAll();
 
                         // 件名
+                        mailTitle = $"日報{day.Year}年{day.Month}月{day.Day}日分(久保田將広) ";
                         mailItem.Subject = mailTitle;
 
                         // 本文
@@ -223,6 +224,7 @@ namespace AutoMail
             day = monthCalendar.SelectionStart;//選択した日付を選択
             labelSelectDate.Text = "選択日："+day.ToLongDateString();//日付更新
             labelTotay.ForeColor = Color.Gray;
+            
         }
 
         private void MonthCalendar_DateChanged(object sender, DateRangeEventArgs e)
@@ -231,6 +233,8 @@ namespace AutoMail
             day = monthCalendar.SelectionStart;//選択した日付を選択
             radioButtonOtherDay.Checked = true;//チェックボックス選択ON
             labelSelectDate.Text = "選択日："+day.ToLongDateString();//日付更新
+            
+
         }
 
         private void ButtonSendUserAdd_Click(object sender, EventArgs e)
